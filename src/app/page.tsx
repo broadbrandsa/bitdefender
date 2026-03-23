@@ -17,6 +17,7 @@ import UserJourney from '@/components/sections/user-journey'
 import Pricing from '@/components/sections/pricing'
 import TermsCTA from '@/components/sections/terms-cta'
 import Footer from '@/components/sections/footer'
+import ScrollToTop from '@/components/scroll-to-top'
 
 export default function Home() {
   return (
@@ -40,6 +41,7 @@ export default function Home() {
       <Pricing />
       <TermsCTA />
       <Footer />
+      <ScrollToTop />
     </main>
   )
 }

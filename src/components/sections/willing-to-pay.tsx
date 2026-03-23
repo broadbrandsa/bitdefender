@@ -1,6 +1,7 @@
 'use client'
 
 import AnimateOnScroll from '@/components/animate-on-scroll'
+import AnimatedCounter from '@/components/animated-counter'
 
 export default function WillingToPay() {
   return (
@@ -17,6 +18,16 @@ export default function WillingToPay() {
         />
       </div>
 
+      {/* Decorative glow */}
+      <div
+        className="absolute top-0 right-0 pointer-events-none"
+        style={{
+          width: '50%',
+          height: '100%',
+          background: 'radial-gradient(ellipse 80% 80% at 80% 30%, rgba(255,255,255,0.06) 0%, transparent 60%)',
+        }}
+      />
+
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <AnimateOnScroll animation="fade-up">
           <h2 className="text-3xl lg:text-5xl font-black tracking-tight text-white leading-[0.95] mb-16">
@@ -26,13 +37,13 @@ export default function WillingToPay() {
           </h2>
         </AnimateOnScroll>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl">
           <AnimateOnScroll animation="fade-up" delay={0.1}>
-            <div className="p-8 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/[0.14] transition-colors duration-200">
-              <div className="text-5xl lg:text-6xl font-black text-white mb-4">
-                $6–10
+            <div className="p-6 sm:p-8 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/[0.14] transition-all duration-300 group">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4">
+                <AnimatedCounter value="$6–10" duration={1.2} />
               </div>
-              <p className="text-white/75 text-base leading-relaxed">
+              <p className="text-white/75 text-sm sm:text-base leading-relaxed">
                 Users say they&apos;re willing to pay an extra{' '}
                 <strong className="text-white">$6–10/month</strong>
                 <sup className="text-white/50 ml-0.5">1</sup>{' '}
@@ -42,11 +53,11 @@ export default function WillingToPay() {
           </AnimateOnScroll>
 
           <AnimateOnScroll animation="fade-up" delay={0.18}>
-            <div className="p-8 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/[0.14] transition-colors duration-200">
-              <div className="text-5xl lg:text-6xl font-black text-white mb-4">
-                62%
+            <div className="p-6 sm:p-8 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/[0.14] transition-all duration-300 group">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4">
+                <AnimatedCounter value="62%" duration={1.4} />
               </div>
-              <p className="text-white/75 text-base leading-relaxed">
+              <p className="text-white/75 text-sm sm:text-base leading-relaxed">
                 Users are also willing to pay an extra{' '}
                 <strong className="text-white">62% of product price</strong>
                 <sup className="text-white/50 ml-0.5">2</sup>{' '}

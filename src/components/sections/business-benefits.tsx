@@ -45,20 +45,38 @@ export default function BusinessBenefits() {
               'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,109,255,0.06) 0%, transparent 60%)',
           }}
         />
+        {/* Subtle grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+        />
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8">
-        <div className="space-y-16 lg:space-y-20">
+        <AnimateOnScroll animation="fade-up">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-bd-blue mb-16 text-center">
+            Business Benefits
+          </p>
+        </AnimateOnScroll>
+
+        <div className="space-y-0">
           {benefits.map((benefit, i) => (
             <AnimateOnScroll
               key={benefit.title}
               delay={i * 0.08}
               animation="fade-up"
             >
-              <div className="flex flex-col md:flex-row md:items-baseline gap-3 md:gap-10">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-bd-blue leading-tight flex-shrink-0 md:w-[40%] md:text-right">
-                  {benefit.title}
-                </h3>
+              <div className="flex flex-col md:flex-row md:items-baseline gap-3 md:gap-10 py-10 md:py-12 border-t border-white/[0.06] first:border-t-0">
+                <div className="flex items-baseline gap-4 flex-shrink-0 md:w-[42%] md:justify-end">
+                  <span className="text-sm font-bold text-white/15 tabular-nums">0{i + 1}</span>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-bd-blue leading-tight">
+                    {benefit.title}
+                  </h3>
+                </div>
                 <p className="text-base lg:text-lg text-white/55 max-w-lg leading-relaxed">
                   {benefit.highlight ? (
                     <>

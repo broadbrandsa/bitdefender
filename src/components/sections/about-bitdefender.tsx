@@ -2,6 +2,7 @@
 
 import { Badge } from '@/components/ui/badge'
 import AnimateOnScroll from '@/components/animate-on-scroll'
+import AnimatedCounter from '@/components/animated-counter'
 
 export default function AboutBitdefender() {
   return (
@@ -37,12 +38,14 @@ export default function AboutBitdefender() {
             { label: 'Partners', sublabel: 'Qualified partners and resellers distributed in 170 countries', value: '20,000+', text: null },
           ].map((item, i) => (
             <AnimateOnScroll key={item.label} animation="fade-up" delay={0.05 + i * 0.08}>
-              <div className="p-6 rounded-2xl bg-white border border-border/50 hover:border-bd-blue/20 hover:shadow-sm transition-all duration-200 h-full">
+              <div className="p-6 rounded-2xl bg-white border border-border/50 hover:border-bd-blue/20 hover:shadow-md transition-all duration-300 h-full group">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-bd-blue mb-3">
                   {item.label}
                 </h3>
                 {item.value && (
-                  <div className="text-3xl font-black text-foreground mb-1">{item.value}</div>
+                  <div className="text-3xl lg:text-4xl font-black text-foreground mb-1">
+                    <AnimatedCounter value={item.value} />
+                  </div>
                 )}
                 {item.sublabel && (
                   <p className="text-sm text-muted-foreground">{item.sublabel}</p>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import { LockProvider } from "@/components/lock-context";
 import LockScreen from "@/components/lock-screen";
 
 const roboto = Roboto({
@@ -26,7 +27,9 @@ export default function RootLayout({
       className={`${roboto.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
-        <LockScreen>{children}</LockScreen>
+        <LockProvider>
+          <LockScreen>{children}</LockScreen>
+        </LockProvider>
       </body>
     </html>
   );

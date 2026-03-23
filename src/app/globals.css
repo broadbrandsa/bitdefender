@@ -105,6 +105,15 @@
   animation: lockFadeOut 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+@keyframes lockFadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.lock-entering {
+  animation: lockFadeIn 0.4s ease-out forwards;
+}
+
 /* Scroll-triggered animations */
 @keyframes fadeInUp {
   from {

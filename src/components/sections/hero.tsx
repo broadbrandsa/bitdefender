@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import AnimateOnScroll from '@/components/animate-on-scroll'
+import AnimatedCounter from '@/components/animated-counter'
 
 export default function Hero() {
   return (
@@ -33,7 +34,7 @@ export default function Hero() {
             background: 'linear-gradient(to top, #06090f 0%, transparent 100%)',
           }}
         />
-        {/* Top gradient overlay */}
+        {/* Blue glow */}
         <div
           className="absolute inset-0"
           style={{
@@ -77,12 +78,12 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-4 mb-12">
               <a
                 href="mailto:liamg@digitalresilience.co.za"
-                className="inline-flex items-center justify-center bg-bd-red hover:bg-bd-red/90 text-white font-semibold px-8 h-12 text-base rounded-xl transition-colors"
+                className="inline-flex items-center justify-center bg-bd-red hover:bg-bd-red/90 text-white font-semibold px-8 h-12 text-base rounded-xl transition-colors group"
               >
-                Get in Touch
+                <span className="group-hover:translate-x-0.5 transition-transform duration-150">Get in Touch</span>
               </a>
               <button
-                className="inline-flex items-center justify-center border border-white/15 text-white/70 hover:text-white hover:bg-white/5 font-medium px-8 h-12 text-base rounded-xl transition-colors"
+                className="inline-flex items-center justify-center border border-white/15 text-white/70 hover:text-white hover:bg-white/5 font-medium px-8 h-12 text-base rounded-xl transition-all duration-200"
                 onClick={() => {
                   document.getElementById('platform')?.scrollIntoView({ behavior: 'smooth' })
                 }}
@@ -99,7 +100,7 @@ export default function Hero() {
         </div>
 
         {/* Stats strip */}
-        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {[
             { value: '5.5B', label: 'malware attacks in 2022', sup: '1' },
             { value: '8', label: 'attacks/day against home networks', sup: '2' },
@@ -107,11 +108,11 @@ export default function Hero() {
             { value: '49%', label: 'users expect a solution from their ISP', sup: '4' },
           ].map((stat, i) => (
             <AnimateOnScroll key={stat.value} animation="fade-up" delay={0.3 + i * 0.08}>
-              <div className="relative p-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-200">
-                <div className="text-3xl lg:text-4xl font-black text-bd-blue mb-1">
-                  {stat.value}
+              <div className="relative p-4 sm:p-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-200 group">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-bd-blue mb-1">
+                  <AnimatedCounter value={stat.value} />
                 </div>
-                <div className="text-sm text-white/45 leading-snug">
+                <div className="text-xs sm:text-sm text-white/45 leading-snug">
                   {stat.label}
                   <sup className="text-white/25 ml-0.5">{stat.sup}</sup>
                 </div>
@@ -119,7 +120,7 @@ export default function Hero() {
             </AnimateOnScroll>
           ))}
         </div>
-        <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-[10px] text-white/20">
+        <div className="mt-4 flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-1 text-[10px] text-white/20">
           <span>1. Statista, Annual number of malware attacks worldwide 2015–2022</span>
           <span>2. Bitdefender, The 2023 IoT Security Landscape Report</span>
           <span>3. Statista, Crimes Americans worry about most in 2022</span>

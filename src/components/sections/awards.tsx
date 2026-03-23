@@ -1,6 +1,45 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import AnimateOnScroll from '@/components/animate-on-scroll'
+
+function AnimatedBar({ score, highlight, name }: { score: number; highlight: boolean; name: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [width, setWidth] = useState(0)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setWidth((score / 10) * 100), 100)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.5 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [score])
+
+  return (
+    <div ref={ref} className="flex items-center gap-3">
+      <span className={`text-xs w-24 flex-shrink-0 ${highlight ? 'font-bold text-bd-blue' : 'text-muted-foreground'}`}>
+        {name}
+      </span>
+      <div className="flex-1 h-5 bg-muted rounded-full overflow-hidden">
+        <div
+          className={`h-full rounded-full transition-all duration-1000 ease-out ${highlight ? 'bg-bd-blue' : 'bg-muted-foreground/30'}`}
+          style={{ width: `${width}%` }}
+        />
+      </div>
+      <span className={`text-xs font-bold w-8 text-right flex-shrink-0 ${highlight ? 'text-bd-blue' : 'text-muted-foreground'}`}>
+        {score}
+      </span>
+    </div>
+  )
+}
 
 export default function Awards() {
   return (
@@ -17,11 +56,11 @@ export default function Awards() {
           </div>
         </AnimateOnScroll>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Quote */}
           <AnimateOnScroll animation="fade-up" delay={0.08}>
-            <div className="p-8 rounded-2xl bg-white border border-border/50 hover:border-bd-blue/20 hover:shadow-sm transition-all duration-200 h-full">
-              <blockquote className="text-base text-bd-blue leading-relaxed italic mb-6">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-border/50 hover:border-bd-blue/20 hover:shadow-md transition-all duration-300 h-full flex flex-col">
+              <blockquote className="text-sm sm:text-base text-bd-blue leading-relaxed italic mb-6 flex-1">
                 &ldquo;Not only did Bitdefender receive the highest overall rating in this
                 year&apos;s test, but it has also now{' '}
                 <strong className="font-bold not-italic">won this coveted award five times</strong>,
@@ -35,12 +74,12 @@ export default function Awards() {
 
           {/* PCMag awards */}
           <AnimateOnScroll animation="fade-up" delay={0.16}>
-            <div className="p-8 rounded-2xl bg-white border border-border/50 flex flex-col items-center justify-center text-center hover:border-bd-blue/20 hover:shadow-sm transition-all duration-200 h-full">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-border/50 flex flex-col items-center justify-center text-center hover:border-bd-blue/20 hover:shadow-md transition-all duration-300 h-full">
               <p className="text-sm text-muted-foreground mb-6">
                 Over the years Bitdefender products have constantly ranked high both
                 in independent labs tests as well as in user preferences.
               </p>
-              <div className="grid grid-cols-4 gap-4 w-full">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
                 {[
                   'The Best Antivirus Software for 2024',
                   'Best Malware Removal & Protection Software for 2024',
@@ -49,10 +88,10 @@ export default function Awards() {
                 ].map((award) => (
                   <div
                     key={award}
-                    className="p-3 rounded-xl bg-bd-red/5 border border-bd-red/10 flex flex-col items-center justify-center hover:bg-bd-red/10 transition-colors duration-200"
+                    className="p-3 rounded-xl bg-bd-red/5 border border-bd-red/10 flex flex-col items-center justify-center hover:bg-bd-red/10 hover:scale-[1.03] transition-all duration-200"
                   >
-                    <span className="text-2xl font-black text-bd-red mb-1">#1</span>
-                    <span className="text-[9px] text-muted-foreground leading-tight text-center">
+                    <span className="text-xl sm:text-2xl font-black text-bd-red mb-1">#1</span>
+                    <span className="text-[8px] sm:text-[9px] text-muted-foreground leading-tight text-center">
                       {award}
                     </span>
                   </div>
@@ -63,7 +102,7 @@ export default function Awards() {
 
           {/* Score card */}
           <AnimateOnScroll animation="fade-up" delay={0.24}>
-            <div className="p-8 rounded-2xl bg-white border border-border/50 hover:border-bd-blue/20 hover:shadow-sm transition-all duration-200 h-full">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-border/50 hover:border-bd-blue/20 hover:shadow-md transition-all duration-300 h-full">
               <p className="text-sm text-muted-foreground mb-6 italic">
                 &ldquo;Antivirus protection by Bitdefender Total Security&apos;s Android edition
                 swept the testing labs, with perfect scores from AV-Test,
@@ -80,20 +119,7 @@ export default function Awards() {
                   { name: 'Microsoft', score: 8.6, highlight: false },
                   { name: 'Kaspersky Lab', score: 8.6, highlight: false },
                 ].map((item) => (
-                  <div key={item.name} className="flex items-center gap-3">
-                    <span className={`text-xs w-24 ${item.highlight ? 'font-bold text-bd-blue' : 'text-muted-foreground'}`}>
-                      {item.name}
-                    </span>
-                    <div className="flex-1 h-5 bg-muted rounded-full overflow-hidden">
-                      <div
-                        className={`h-full rounded-full transition-all duration-700 ${item.highlight ? 'bg-bd-blue' : 'bg-muted-foreground/30'}`}
-                        style={{ width: `${(item.score / 10) * 100}%` }}
-                      />
-                    </div>
-                    <span className={`text-xs font-bold w-8 text-right ${item.highlight ? 'text-bd-blue' : 'text-muted-foreground'}`}>
-                      {item.score}
-                    </span>
-                  </div>
+                  <AnimatedBar key={item.name} {...item} />
                 ))}
               </div>
             </div>

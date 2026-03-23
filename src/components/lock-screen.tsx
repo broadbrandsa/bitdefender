@@ -2,25 +2,28 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
+import { useLock } from './lock-context'
 
 const CORRECT_CODE = '0222'
-const STORAGE_KEY = 'bd_proposal_v1_unlocked'
 
 export default function LockScreen({ children }: { children: React.ReactNode }) {
-  const [unlocked, setUnlocked] = useState<boolean | null>(null)
+  const { isLocked, unlock } = useLock()
   const [digits, setDigits] = useState<string[]>(['', '', '', ''])
   const [error, setError] = useState(false)
   const [exiting, setExiting] = useState(false)
+  const [entering, setEntering] = useState(false)
   const hiddenInputRef = useRef<HTMLInputElement>(null)
 
+  // Reset digits when locking
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY)
-      setUnlocked(saved === 'true')
-    } catch {
-      setUnlocked(false)
+    if (isLocked) {
+      setDigits(['', '', '', ''])
+      setExiting(false)
+      setEntering(true)
+      const t = setTimeout(() => setEntering(false), 50)
+      return () => clearTimeout(t)
     }
-  }, [])
+  }, [isLocked])
 
   const handleDelete = useCallback(() => {
     setDigits((prev) => {
@@ -50,10 +53,7 @@ export default function LockScreen({ children }: { children: React.ReactNode }) 
             setTimeout(() => {
               setExiting(true)
               setTimeout(() => {
-                try {
-                  localStorage.setItem(STORAGE_KEY, 'true')
-                } catch {}
-                setUnlocked(true)
+                unlock()
               }, 900)
             }, 200)
           } else {
@@ -69,11 +69,11 @@ export default function LockScreen({ children }: { children: React.ReactNode }) 
         return next
       })
     },
-    [error]
+    [error, unlock]
   )
 
   useEffect(() => {
-    if (unlocked) return
+    if (!isLocked) return
     const onKey = (e: KeyboardEvent) => {
       if (document.activeElement === hiddenInputRef.current) return
       if (e.key >= '0' && e.key <= '9') handleDigit(e.key)
@@ -81,7 +81,7 @@ export default function LockScreen({ children }: { children: React.ReactNode }) 
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [unlocked, handleDigit, handleDelete])
+  }, [isLocked, handleDigit, handleDelete])
 
   const handleHiddenInput = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,13 +94,12 @@ export default function LockScreen({ children }: { children: React.ReactNode }) 
     [handleDigit]
   )
 
-  if (unlocked === null) return null
-  if (unlocked) return <>{children}</>
+  if (!isLocked) return <>{children}</>
 
   return (
     <>
       <div
-        className={`lock-overlay ${exiting ? 'lock-exiting' : ''} ${error ? 'lock-shake' : ''}`}
+        className={`lock-overlay ${exiting ? 'lock-exiting' : ''} ${error ? 'lock-shake' : ''} ${entering ? 'lock-entering' : ''}`}
         style={{
           position: 'fixed',
           inset: 0,
@@ -176,8 +175,8 @@ export default function LockScreen({ children }: { children: React.ReactNode }) 
           </span>
 
           {/* Logos row */}
-          <div className="flex items-center gap-4">
-            <div className="relative w-36 h-8">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="relative w-24 sm:w-36 h-6 sm:h-8">
               <Image
                 src="/Digitalresilience.png"
                 alt="Digital Resilience"
@@ -186,14 +185,14 @@ export default function LockScreen({ children }: { children: React.ReactNode }) 
                 style={{ filter: 'brightness(0) invert(1)', opacity: 0.85 }}
               />
             </div>
-            <div className="w-px h-6 bg-white/20" />
-            <div className="relative w-28 h-7">
+            <div className="w-px h-5 sm:h-6 bg-white/20" />
+            <div className="relative w-20 sm:w-28 h-5 sm:h-7">
               <Image
                 src="/bitdefender logo.svg"
                 alt="Bitdefender"
                 fill
                 className="object-contain object-center"
-                style={{ opacity: 0.85 }}
+                style={{ filter: 'brightness(0) invert(1)', opacity: 0.85 }}
               />
             </div>
           </div>
