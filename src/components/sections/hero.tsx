@@ -120,7 +120,7 @@ export default function Hero() {
             </AnimateOnScroll>
           ))}
         </div>
-        <div className="mt-4 flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-1 text-[10px] text-white/20">
+        <div className="mt-4 flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-1 text-[10px] text-white/40">
           <span>1. Statista, Annual number of malware attacks worldwide 2015–2022</span>
           <span>2. Bitdefender, The 2023 IoT Security Landscape Report</span>
           <span>3. Statista, Crimes Americans worry about most in 2022</span>

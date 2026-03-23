@@ -67,7 +67,7 @@ export default function WillingToPay() {
           </AnimateOnScroll>
         </div>
 
-        <div className="mt-10 flex flex-col gap-1 text-[11px] text-white/30">
+        <div className="mt-10 flex flex-col gap-1 text-[11px] text-white/50">
           <span>1. Bitdefender Security and Privacy Study, Sep 2023</span>
           <span>
             2. Blythe, Johnson, Manning. What is security worth to consumers?
