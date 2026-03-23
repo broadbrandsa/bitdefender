@@ -1,3 +1,4 @@
+import Navbar from '@/components/sections/navbar'
 import Hero from '@/components/sections/hero'
 import AboutDigitalResilience from '@/components/sections/about-digital-resilience'
 import AboutBitdefender from '@/components/sections/about-bitdefender'
@@ -20,6 +21,7 @@ import Footer from '@/components/sections/footer'
 export default function Home() {
   return (
     <main>
+      <Navbar />
       <Hero />
       <AboutDigitalResilience />
       <AboutBitdefender />

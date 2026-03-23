@@ -86,7 +86,7 @@ export default function TermsCTA() {
             <div className="flex flex-wrap items-center gap-4 mb-8">
               <a
                 href="mailto:liamg@digitalresilience.co.za"
-                className="inline-flex items-center justify-center bg-bd-blue hover:bg-bd-blue-dark text-white font-semibold px-8 h-12 text-base rounded-xl transition-colors"
+                className="inline-flex items-center justify-center bg-bd-red hover:bg-bd-red/90 text-white font-semibold px-8 h-12 text-base rounded-xl transition-colors"
               >
                 Contact Us
               </a>

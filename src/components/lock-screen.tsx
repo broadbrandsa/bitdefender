@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback, useRef } from 'react'
+import Image from 'next/image'
 
 const CORRECT_CODE = '0222'
 const STORAGE_KEY = 'bd_proposal_v1_unlocked'
@@ -112,60 +113,89 @@ export default function LockScreen({ children }: { children: React.ReactNode }) 
           overflow: 'hidden',
         }}
       >
-        {/* Background mesh gradient */}
+        {/* Background image */}
         <div className="absolute inset-0 pointer-events-none select-none" style={{ zIndex: 0 }}>
+          <Image
+            src="/Lockscreen image.webp"
+            alt=""
+            fill
+            className="object-cover object-center"
+            style={{ opacity: 0.4 }}
+            priority
+          />
+          {/* Vignette */}
           <div
             className="absolute inset-0"
             style={{
-              background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,109,240,0.12) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 80% 100%, rgba(237,28,36,0.06) 0%, transparent 50%)',
+              background:
+                'radial-gradient(ellipse 75% 75% at 50% 50%, transparent 20%, #06090f 100%)',
             }}
           />
-          {/* Grid pattern */}
+          {/* Bottom fade */}
           <div
-            className="absolute inset-0 opacity-[0.03]"
+            className="absolute bottom-0 left-0 right-0"
             style={{
-              backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-              backgroundSize: '60px 60px',
+              height: '50%',
+              background: 'linear-gradient(to top, #06090f 0%, transparent 100%)',
             }}
           />
         </div>
 
-        {/* Top: badge */}
+        {/* Blue glow top */}
+        <div
+          className="absolute top-0 left-0 right-0 pointer-events-none"
+          style={{
+            height: '40vh',
+            background:
+              'radial-gradient(ellipse 60% 60% at 50% 0%, rgba(0,109,255,0.15) 0%, transparent 70%)',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Top: badge + logos */}
         <div className="relative z-10 flex flex-col items-center gap-5 mt-10 md:mt-14">
           <span
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[10px] font-semibold tracking-[0.2em] uppercase"
             style={{
-              background: 'rgba(0,109,240,0.08)',
-              border: '1px solid rgba(0,109,240,0.2)',
+              background: 'rgba(0,109,255,0.08)',
+              border: '1px solid rgba(0,109,255,0.2)',
               color: '#4a9fff',
             }}
           >
             <span className="relative flex h-1.5 w-1.5">
               <span
                 className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                style={{ background: '#006DF0' }}
+                style={{ background: '#006DFF' }}
               />
               <span
                 className="relative inline-flex rounded-full h-1.5 w-1.5"
-                style={{ background: '#006DF0' }}
+                style={{ background: '#006DFF' }}
               />
             </span>
             Confidential · Executive Review Only
           </span>
 
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <svg viewBox="0 0 120 24" className="h-5 md:h-6" fill="none">
-              <text x="0" y="18" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="16" fill="white" letterSpacing="-0.02em">
-                Digital Resilience
-              </text>
-            </svg>
-            <div className="w-px h-5 bg-white/20" />
-            <svg viewBox="0 0 100 24" className="h-5 md:h-6" fill="none">
-              <text x="0" y="18" fontFamily="system-ui, sans-serif" fontWeight="700" fontSize="15" fill="#006DF0" letterSpacing="-0.02em">
-                Bitdefender
-              </text>
-            </svg>
+          {/* Logos row */}
+          <div className="flex items-center gap-4">
+            <div className="relative w-36 h-8">
+              <Image
+                src="/Digitalresilience.png"
+                alt="Digital Resilience"
+                fill
+                className="object-contain object-center"
+                style={{ filter: 'brightness(0) invert(1)', opacity: 0.85 }}
+              />
+            </div>
+            <div className="w-px h-6 bg-white/20" />
+            <div className="relative w-28 h-7">
+              <Image
+                src="/bitdefender logo.svg"
+                alt="Bitdefender"
+                fill
+                className="object-contain object-center"
+                style={{ opacity: 0.85 }}
+              />
+            </div>
           </div>
         </div>
 
@@ -183,7 +213,7 @@ export default function LockScreen({ children }: { children: React.ReactNode }) 
             <br />
             DIGIT CODE
             <br />
-            <span style={{ color: '#006DF0' }}>TO VIEW</span>
+            <span style={{ color: '#006DFF' }}>TO VIEW</span>
             <br />
             <span style={{ color: 'rgba(255,255,255,0.18)' }}>THE PROPOSAL.</span>
           </h1>
@@ -222,19 +252,19 @@ export default function LockScreen({ children }: { children: React.ReactNode }) 
                     background: error
                       ? 'rgba(239,68,68,0.12)'
                       : d
-                      ? 'rgba(0,109,240,0.15)'
+                      ? 'rgba(0,109,255,0.15)'
                       : isCurrent
-                      ? 'rgba(0,109,240,0.08)'
+                      ? 'rgba(0,109,255,0.08)'
                       : 'rgba(255,255,255,0.03)',
                     border: error
                       ? '2px solid rgba(239,68,68,0.45)'
                       : d
-                      ? '2px solid rgba(0,109,240,0.45)'
+                      ? '2px solid rgba(0,109,255,0.45)'
                       : isCurrent
-                      ? '2px solid rgba(0,109,240,0.25)'
+                      ? '2px solid rgba(0,109,255,0.25)'
                       : '2px solid rgba(255,255,255,0.06)',
                     boxShadow:
-                      d && !error ? '0 0 40px rgba(0,109,240,0.15)' : 'none',
+                      d && !error ? '0 0 40px rgba(0,109,255,0.15)' : 'none',
                   }}
                 >
                   <span

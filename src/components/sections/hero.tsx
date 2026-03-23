@@ -1,34 +1,43 @@
 'use client'
 
+import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 
 export default function Hero() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-bd-navy">
-      {/* Background effects */}
+      {/* Background image */}
       <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/Hero image.webp"
+          alt=""
+          fill
+          className="object-cover object-center"
+          style={{ opacity: 0.35 }}
+          priority
+        />
+        {/* Vignette */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 70% 50% at 70% 40%, rgba(0,109,240,0.10) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 20% 80%, rgba(0,109,240,0.05) 0%, transparent 50%)',
+              'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 20%, #06090f 100%)',
           }}
         />
+        {/* Bottom fade */}
         <div
-          className="absolute inset-0 opacity-[0.025]"
+          className="absolute bottom-0 left-0 right-0"
           style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
+            height: '40%',
+            background: 'linear-gradient(to top, #06090f 0%, transparent 100%)',
           }}
         />
-        {/* Floating orb */}
+        {/* Top gradient overlay */}
         <div
-          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.04]"
+          className="absolute inset-0"
           style={{
-            background: 'radial-gradient(circle, #006DF0, transparent 70%)',
-            filter: 'blur(60px)',
+            background:
+              'radial-gradient(ellipse 70% 50% at 70% 40%, rgba(0,109,255,0.08) 0%, transparent 60%)',
           }}
         />
       </div>
@@ -60,25 +69,20 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">
-            <Button
-              size="lg"
-              className="bg-bd-blue hover:bg-bd-blue-dark text-white font-semibold px-8 h-12 text-base rounded-xl"
+            <a
+              href="mailto:liamg@digitalresilience.co.za"
+              className="inline-flex items-center justify-center bg-bd-red hover:bg-bd-red/90 text-white font-semibold px-8 h-12 text-base rounded-xl transition-colors"
+            >
+              Get in Touch
+            </a>
+            <button
+              className="inline-flex items-center justify-center border border-white/15 text-white/70 hover:text-white hover:bg-white/5 font-medium px-8 h-12 text-base rounded-xl transition-colors"
               onClick={() => {
                 document.getElementById('platform')?.scrollIntoView({ behavior: 'smooth' })
               }}
             >
               Explore the Platform
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-white/15 text-white/70 hover:text-white hover:bg-white/5 font-medium px-8 h-12 text-base rounded-xl"
-              onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-              }}
-            >
-              Get in Touch
-            </Button>
+            </button>
           </div>
 
           <p className="text-xs text-white/30">
@@ -97,7 +101,7 @@ export default function Hero() {
           ].map((stat) => (
             <div
               key={stat.value}
-              className="relative p-5 rounded-2xl border border-white/[0.06] bg-white/[0.02]"
+              className="relative p-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm"
             >
               <div className="text-3xl lg:text-4xl font-black text-bd-blue mb-1">
                 {stat.value}
