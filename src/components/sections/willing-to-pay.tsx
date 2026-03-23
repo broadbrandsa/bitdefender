@@ -1,3 +1,7 @@
+'use client'
+
+import AnimateOnScroll from '@/components/animate-on-scroll'
+
 export default function WillingToPay() {
   return (
     <section className="py-24 lg:py-32 bg-bd-blue relative overflow-hidden">
@@ -14,38 +18,42 @@ export default function WillingToPay() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-3xl lg:text-5xl font-black tracking-tight text-white leading-[0.95] mb-16">
-          Your subscribers want more,
-          <br />
-          and they&apos;re <span className="underline decoration-white/30 underline-offset-4">willing to pay more</span>
-        </h2>
+        <AnimateOnScroll animation="fade-up">
+          <h2 className="text-3xl lg:text-5xl font-black tracking-tight text-white leading-[0.95] mb-16">
+            Your subscribers want more,
+            <br />
+            and they&apos;re <span className="underline decoration-white/30 underline-offset-4">willing to pay more</span>
+          </h2>
+        </AnimateOnScroll>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-3xl">
-          {/* Stat 1 */}
-          <div className="p-8 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-            <div className="text-5xl lg:text-6xl font-black text-white mb-4">
-              $6–10
+          <AnimateOnScroll animation="fade-up" delay={0.1}>
+            <div className="p-8 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/[0.14] transition-colors duration-200">
+              <div className="text-5xl lg:text-6xl font-black text-white mb-4">
+                $6–10
+              </div>
+              <p className="text-white/75 text-base leading-relaxed">
+                Users say they&apos;re willing to pay an extra{' '}
+                <strong className="text-white">$6–10/month</strong>
+                <sup className="text-white/50 ml-0.5">1</sup>{' '}
+                for better security
+              </p>
             </div>
-            <p className="text-white/75 text-base leading-relaxed">
-              Users say they&apos;re willing to pay an extra{' '}
-              <strong className="text-white">$6–10/month</strong>
-              <sup className="text-white/50 ml-0.5">1</sup>{' '}
-              for better security
-            </p>
-          </div>
+          </AnimateOnScroll>
 
-          {/* Stat 2 */}
-          <div className="p-8 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-            <div className="text-5xl lg:text-6xl font-black text-white mb-4">
-              62%
+          <AnimateOnScroll animation="fade-up" delay={0.18}>
+            <div className="p-8 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/[0.14] transition-colors duration-200">
+              <div className="text-5xl lg:text-6xl font-black text-white mb-4">
+                62%
+              </div>
+              <p className="text-white/75 text-base leading-relaxed">
+                Users are also willing to pay an extra{' '}
+                <strong className="text-white">62% of product price</strong>
+                <sup className="text-white/50 ml-0.5">2</sup>{' '}
+                for a safer Wi-Fi router
+              </p>
             </div>
-            <p className="text-white/75 text-base leading-relaxed">
-              Users are also willing to pay an extra{' '}
-              <strong className="text-white">62% of product price</strong>
-              <sup className="text-white/50 ml-0.5">2</sup>{' '}
-              for a safer Wi-Fi router
-            </p>
-          </div>
+          </AnimateOnScroll>
         </div>
 
         <div className="mt-10 flex flex-col gap-1 text-[11px] text-white/30">

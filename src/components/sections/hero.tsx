@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
+import AnimateOnScroll from '@/components/animate-on-scroll'
 
 export default function Hero() {
   return (
@@ -44,51 +45,57 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl w-full px-6 lg:px-8 py-20">
         <div className="max-w-3xl">
-          <Badge
-            variant="outline"
-            className="mb-8 border-bd-blue/25 bg-bd-blue/5 text-blue-400 text-xs tracking-wider uppercase font-medium px-4 py-1.5"
-          >
-            Subscriber Protection Platform
-          </Badge>
-
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[0.92] text-white mb-6">
-            All-in-one
-            <br />
-            <span className="text-bd-blue">cybersecurity</span>
-            <br />
-            designed to add value
-            <br />
-            <span className="text-white/30">to your subscribers</span>
-          </h1>
-
-          <p className="text-lg lg:text-xl text-white/55 max-w-xl mb-10 leading-relaxed">
-            Bitdefender Subscriber Protection Platform is a comprehensive
-            cybersecurity ecosystem tailored to the specific needs of service
-            providers. Watch your ARPU jump by{' '}
-            <strong className="text-bd-blue font-semibold">5-8%</strong>*.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-4 mb-12">
-            <a
-              href="mailto:liamg@digitalresilience.co.za"
-              className="inline-flex items-center justify-center bg-bd-red hover:bg-bd-red/90 text-white font-semibold px-8 h-12 text-base rounded-xl transition-colors"
+          <AnimateOnScroll animation="fade-up">
+            <Badge
+              variant="outline"
+              className="mb-8 border-bd-blue/25 bg-bd-blue/5 text-blue-400 text-xs tracking-wider uppercase font-medium px-4 py-1.5"
             >
-              Get in Touch
-            </a>
-            <button
-              className="inline-flex items-center justify-center border border-white/15 text-white/70 hover:text-white hover:bg-white/5 font-medium px-8 h-12 text-base rounded-xl transition-colors"
-              onClick={() => {
-                document.getElementById('platform')?.scrollIntoView({ behavior: 'smooth' })
-              }}
-            >
-              Explore the Platform
-            </button>
-          </div>
+              Subscriber Protection Platform
+            </Badge>
 
-          <p className="text-xs text-white/30">
-            *Results reported by existing partners. Values are subject to variability
-            and rely on a multitude of influencing factors.
-          </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[0.92] text-white mb-6">
+              All-in-one
+              <br />
+              <span className="text-bd-blue">cybersecurity</span>
+              <br />
+              designed to add value
+              <br />
+              <span className="text-white/30">to your subscribers</span>
+            </h1>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="fade-up" delay={0.15}>
+            <p className="text-lg lg:text-xl text-white/55 max-w-xl mb-10 leading-relaxed">
+              Bitdefender Subscriber Protection Platform is a comprehensive
+              cybersecurity ecosystem tailored to the specific needs of service
+              providers. Watch your ARPU jump by{' '}
+              <strong className="text-bd-blue font-semibold">5-8%</strong>*.
+            </p>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="fade-up" delay={0.25}>
+            <div className="flex flex-wrap items-center gap-4 mb-12">
+              <a
+                href="mailto:liamg@digitalresilience.co.za"
+                className="inline-flex items-center justify-center bg-bd-red hover:bg-bd-red/90 text-white font-semibold px-8 h-12 text-base rounded-xl transition-colors"
+              >
+                Get in Touch
+              </a>
+              <button
+                className="inline-flex items-center justify-center border border-white/15 text-white/70 hover:text-white hover:bg-white/5 font-medium px-8 h-12 text-base rounded-xl transition-colors"
+                onClick={() => {
+                  document.getElementById('platform')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
+                Explore the Platform
+              </button>
+            </div>
+
+            <p className="text-xs text-white/30">
+              *Results reported by existing partners. Values are subject to variability
+              and rely on a multitude of influencing factors.
+            </p>
+          </AnimateOnScroll>
         </div>
 
         {/* Stats strip */}
@@ -98,19 +105,18 @@ export default function Hero() {
             { value: '8', label: 'attacks/day against home networks', sup: '2' },
             { value: '74%', label: 'users worried about being hacked', sup: '3' },
             { value: '49%', label: 'users expect a solution from their ISP', sup: '4' },
-          ].map((stat) => (
-            <div
-              key={stat.value}
-              className="relative p-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm"
-            >
-              <div className="text-3xl lg:text-4xl font-black text-bd-blue mb-1">
-                {stat.value}
+          ].map((stat, i) => (
+            <AnimateOnScroll key={stat.value} animation="fade-up" delay={0.3 + i * 0.08}>
+              <div className="relative p-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-200">
+                <div className="text-3xl lg:text-4xl font-black text-bd-blue mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-white/45 leading-snug">
+                  {stat.label}
+                  <sup className="text-white/25 ml-0.5">{stat.sup}</sup>
+                </div>
               </div>
-              <div className="text-sm text-white/45 leading-snug">
-                {stat.label}
-                <sup className="text-white/25 ml-0.5">{stat.sup}</sup>
-              </div>
-            </div>
+            </AnimateOnScroll>
           ))}
         </div>
         <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-[10px] text-white/20">

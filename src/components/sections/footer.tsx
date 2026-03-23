@@ -23,6 +23,7 @@ export default function Footer() {
               width={130}
               height={32}
               className="h-6 w-auto object-contain"
+              style={{ filter: 'brightness(0) invert(1)' }}
             />
           </div>
           <div className="flex items-center gap-4">
