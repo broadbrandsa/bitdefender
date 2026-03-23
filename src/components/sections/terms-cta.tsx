@@ -1,7 +1,6 @@
 'use client'
 
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import AnimateOnScroll from '@/components/animate-on-scroll'
 
 export default function TermsCTA() {
@@ -100,16 +99,6 @@ export default function TermsCTA() {
                 >
                   Contact Us
                 </a>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-white/15 text-white/70 hover:text-white hover:bg-white/5 font-medium px-8 h-12 text-base rounded-xl"
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' })
-                  }}
-                >
-                  Back to Top
-                </Button>
               </div>
 
               <div className="text-sm text-white/30">
