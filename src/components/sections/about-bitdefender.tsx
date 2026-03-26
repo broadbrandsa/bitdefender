@@ -23,9 +23,6 @@ export default function AboutBitdefender() {
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Protecting millions of consumer and business environments since 2001.
-              We take pride in our Telco-oriented solutions that include Value-Added Services,
-              Core Network Security and Management &amp; Intelligence Platforms, as well as the
-              partnerships we established with some of the biggest Service Providers in the world.
             </p>
           </div>
         </AnimateOnScroll>

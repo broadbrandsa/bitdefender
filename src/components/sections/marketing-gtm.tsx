@@ -22,17 +22,11 @@ export default function MarketingGTM() {
                 <br />
                 <span className="text-bd-blue">Cybersecurity Offering</span>
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Digital Resilience will work with you on marketing activities and programs
                 to support the joint Go to Market plan and launch set up plan. Our focus
                 will be to ensure that we drive best value and Return on Investment for
-                Customers, your organisation, and Bitdefender.
-              </p>
-              <p className="text-base text-muted-foreground/80 leading-relaxed">
-                Our solution is tailored to your specific requirements and market strategy.
-                Each market has its own set of challenges and Telcos have different needs.
-                Your subscribers will receive market-leading protection, regardless of
-                which integration model you choose.
+                your customers and organisation.
               </p>
             </div>
           </AnimateOnScroll>
@@ -51,10 +45,6 @@ export default function MarketingGTM() {
               {
                 title: 'Full Go to Market Support',
                 desc: 'Strategy development and execution assistance',
-              },
-              {
-                title: 'Billing Mechanism',
-                desc: 'Complete billing integration support',
               },
               {
                 title: 'Training and Portal Use',
@@ -86,30 +76,6 @@ export default function MarketingGTM() {
           </div>
         </div>
 
-        {/* Integration models */}
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
-          {[
-            {
-              model: 'Bitdefender Solutions',
-              desc: 'Deploy Bitdefender-branded solutions directly to your subscribers',
-            },
-            {
-              model: 'Co-branding',
-              desc: 'Develop a co-branded solution with your brand front and center',
-            },
-            {
-              model: 'Custom Integration',
-              desc: 'Add Bitdefender technology into your own existing solution',
-            },
-          ].map((m, i) => (
-            <AnimateOnScroll key={m.model} animation="fade-up" delay={0.1 + i * 0.08}>
-              <div className="p-6 rounded-2xl border-2 border-bd-blue/10 bg-bd-blue/[0.02] text-center hover:border-bd-blue/25 hover:bg-bd-blue/[0.04] transition-all duration-200">
-                <h4 className="text-base font-bold text-bd-blue mb-2">{m.model}</h4>
-                <p className="text-sm text-muted-foreground">{m.desc}</p>
-              </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
       </div>
     </section>
   )

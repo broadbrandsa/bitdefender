@@ -2,7 +2,7 @@
 
 import { Badge } from '@/components/ui/badge'
 import AnimateOnScroll from '@/components/animate-on-scroll'
-import { Check } from 'lucide-react'
+
 
 export default function AboutDigitalResilience() {
   return (
@@ -45,8 +45,7 @@ export default function AboutDigitalResilience() {
                 </h3>
                 <p className="text-base text-muted-foreground leading-relaxed">
                   We remain a trusted digital supplier to many existing clients within the
-                  Financial Services, Telecoms, ICT &amp; Retail sectors. Digital Resilience has
-                  exclusive rights from Bitdefender in being the sole distributor across Africa.
+                  Financial Services, Telecoms, ICT &amp; Retail sectors.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -64,28 +63,6 @@ export default function AboutDigitalResilience() {
               </div>
             </AnimateOnScroll>
 
-            <AnimateOnScroll animation="fade-up" delay={0.2}>
-              <div className="p-6 rounded-2xl border border-bd-blue/15 bg-bd-blue/[0.03]">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-bd-blue mb-3">
-                  What We Deliver
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  {[
-                    'Full Support for Go to Market Strategy',
-                    'Billing Mechanism & Solution Support',
-                    'Training and Portal Use',
-                    'End-to-end customer journey management',
-                    'Always-evolving programs to optimize metrics',
-                    'A solution with revenue opportunity',
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 mt-0.5 text-bd-blue flex-shrink-0" strokeWidth={2.5} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimateOnScroll>
           </div>
         </div>
       </div>

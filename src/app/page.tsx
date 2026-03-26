@@ -2,18 +2,19 @@ import Navbar from '@/components/sections/navbar'
 import Hero from '@/components/sections/hero'
 import AboutDigitalResilience from '@/components/sections/about-digital-resilience'
 import AboutBitdefender from '@/components/sections/about-bitdefender'
-import MarketDemand from '@/components/sections/market-demand'
-import WillingToPay from '@/components/sections/willing-to-pay'
-import PlatformOverview from '@/components/sections/platform-overview'
-import PlatformFeatures from '@/components/sections/platform-features'
-import FiveReasons from '@/components/sections/five-reasons'
-import StrategicPackaging from '@/components/sections/strategic-packaging'
-import CommercialTiers from '@/components/sections/commercial-tiers'
 import Awards from '@/components/sections/awards'
 import IndustryPartners from '@/components/sections/industry-partners'
+import PlatformOverview from '@/components/sections/platform-overview'
+import PlatformFeatures from '@/components/sections/platform-features'
+import StrategicPackaging from '@/components/sections/strategic-packaging'
+import CommercialTiers from '@/components/sections/commercial-tiers'
+import BitdefenderOffering from '@/components/sections/bitdefender-offering'
 import BusinessBenefits from '@/components/sections/business-benefits'
 import MarketingGTM from '@/components/sections/marketing-gtm'
+import ExpandCTA from '@/components/sections/expand-cta'
 import UserJourney from '@/components/sections/user-journey'
+import RestAPI from '@/components/sections/rest-api'
+import Support from '@/components/sections/support'
 import Pricing from '@/components/sections/pricing'
 import TermsCTA from '@/components/sections/terms-cta'
 import Footer from '@/components/sections/footer'
@@ -26,18 +27,19 @@ export default function Home() {
       <Hero />
       <AboutDigitalResilience />
       <AboutBitdefender />
-      <MarketDemand />
-      <WillingToPay />
-      <PlatformOverview />
-      <PlatformFeatures />
-      <FiveReasons />
-      <StrategicPackaging />
-      <CommercialTiers />
       <Awards />
       <IndustryPartners />
+      <PlatformOverview />
+      <PlatformFeatures />
+      <StrategicPackaging />
+      <CommercialTiers />
+      <BitdefenderOffering />
       <BusinessBenefits />
       <MarketingGTM />
+      <ExpandCTA />
       <UserJourney />
+      <RestAPI />
+      <Support />
       <Pricing />
       <TermsCTA />
       <Footer />
