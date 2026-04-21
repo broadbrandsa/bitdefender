@@ -2,6 +2,7 @@
 
 import { Badge } from '@/components/ui/badge'
 import AnimateOnScroll from '@/components/animate-on-scroll'
+import { DollarSign } from 'lucide-react'
 
 export default function TermsCTA() {
   return (
@@ -21,6 +22,33 @@ export default function TermsCTA() {
             </h2>
 
             <div className="max-w-3xl space-y-6 text-sm text-muted-foreground leading-relaxed">
+              <AnimateOnScroll animation="scale-in" delay={0.04}>
+                <div className="p-8 rounded-2xl bg-white border border-border/50 text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-bd-blue/10 flex items-center justify-center mx-auto mb-5">
+                    <DollarSign className="w-7 h-7 text-bd-blue" strokeWidth={1.5} />
+                  </div>
+                  <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                    To be discussed during the consultation phase. Pricing is based on selection
+                    and approval, with licensing billed monthly in advance. All charges exclude
+                    any Tax &amp; Duties. Prices quoted in USD.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-4 text-left mt-6">
+                    <div className="p-4 rounded-xl bg-bd-slate border border-border/50 hover:border-bd-blue/20 hover:shadow-sm transition-all duration-200">
+                      <h4 className="text-sm font-bold text-foreground mb-1">Payment Terms</h4>
+                      <p className="text-xs text-muted-foreground">
+                        Licensing billed monthly in advance, invoiced and payable within 21 days
+                      </p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-bd-slate border border-border/50 hover:border-bd-blue/20 hover:shadow-sm transition-all duration-200">
+                      <h4 className="text-sm font-bold text-foreground mb-1">Setup Charges</h4>
+                      <p className="text-xs text-muted-foreground">
+                        80% Deposit and 20% invoiced prior to launch
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+
               <AnimateOnScroll animation="fade-up" delay={0.08}>
                 <div className="p-6 rounded-2xl bg-white border border-border/50">
                   <h3 className="text-base font-bold text-foreground mb-3">General</h3>

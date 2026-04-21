@@ -16,15 +16,11 @@ export default function UserJourney() {
             >
               Implementation
             </Badge>
-            <h2 className="text-3xl lg:text-5xl font-black tracking-tight text-foreground leading-[0.95] mb-6">
+            <h2 className="text-3xl lg:text-5xl font-black tracking-tight text-foreground leading-[0.95]">
               User Journey
               <br />
               &amp; <span className="text-bd-blue">Integration</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
-              The customer user journey starts at your desired point of acquisition, where the
-              end user would purchase a Bitdefender subscription.
-            </p>
           </div>
         </AnimateOnScroll>
 

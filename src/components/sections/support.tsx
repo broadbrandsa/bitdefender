@@ -26,25 +26,26 @@ export default function Support() {
         <AnimateOnScroll animation="fade-up" delay={0.1}>
           <div className="p-8 rounded-2xl bg-white border border-border/50 mb-8">
             <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-              Bitdefender Technical product queries are managed directly by Bitdefender, with a
-              support escalation process provided. For a fully integrated experience, we recommend
-              that partners provide tier 1 and tier 2 support to their customers. Training will be provided.
+              All technical product enquiries are handled by Bitdefender&apos;s own engineering team, with a
+              clearly defined escalation path in place. To deliver a seamless end-to-end experience for
+              subscribers, we recommend partners take ownership of Tier 1 and Tier 2 support — full training
+              is included to enable this.
             </p>
             <div className="grid md:grid-cols-3 gap-4">
               {[
                 {
                   tier: 'Tier 1',
-                  desc: 'Includes solutions to known problems, for example: customer install, removal tool',
+                  desc: 'Front-line support covering common issues such as installation assistance, removal tool guidance, and other well-documented resolutions.',
                   owner: 'Partner',
                 },
                 {
                   tier: 'Tier 2',
-                  desc: 'Includes escalation of T1 problems where resolution may involve a third-party conflict compatibility issue',
+                  desc: 'Escalated cases from Tier 1 — typically more complex situations involving third-party software conflicts or compatibility challenges.',
                   owner: 'Partner',
                 },
                 {
                   tier: 'Tier 3',
-                  desc: 'Includes further escalation where engineering would get involved, for example: there is a design issue or a product defect',
+                  desc: 'Deep technical escalations that require engineering input — for instance product defects or underlying design-level issues.',
                   owner: 'Bitdefender',
                 },
               ].map((t, i) => (
@@ -68,10 +69,10 @@ export default function Support() {
           <div className="p-6 rounded-2xl border border-bd-blue/10 bg-bd-blue/[0.02]">
             <h4 className="text-sm font-bold text-foreground mb-3">General Support Rules</h4>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Tier one support including billing and payment queries are managed directly by the partner.
-              Queries about the digital delivery of Bitdefender products purchased through the partner
-              are provided by the partner, and any product technical queries are managed by Bitdefender,
-              with escalations provided through the partner.
+              Front-line assistance — including billing and payment-related enquiries — sits with the partner.
+              Anything relating to how Bitdefender products are digitally delivered through the partner is also
+              owned by the partner. Product-level technical matters remain with Bitdefender, with all escalations
+              routed back through the partner.
             </p>
           </div>
         </AnimateOnScroll>

@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { Badge } from '@/components/ui/badge'
 import AnimateOnScroll from '@/components/animate-on-scroll'
 import AnimatedCounter from '@/components/animated-counter'
 
@@ -47,13 +46,6 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl w-full px-6 lg:px-8 py-20">
         <div className="max-w-3xl">
           <AnimateOnScroll animation="fade-up">
-            <Badge
-              variant="outline"
-              className="mb-8 border-bd-blue/25 bg-bd-blue/5 text-blue-400 text-xs tracking-wider uppercase font-medium px-4 py-1.5"
-            >
-              Subscriber Protection Platform
-            </Badge>
-
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[0.92] text-white mb-6">
               All-in-one
               <br />
@@ -67,9 +59,7 @@ export default function Hero() {
 
           <AnimateOnScroll animation="fade-up" delay={0.15}>
             <p className="text-lg lg:text-xl text-white/55 max-w-xl mb-10 leading-relaxed">
-              Bitdefender Subscriber Protection Platform is a comprehensive
-              cybersecurity ecosystem tailored to the specific needs of service
-              providers. Watch your ARPU jump by{' '}
+              Watch your ARPU jump by{' '}
               <strong className="text-bd-blue font-semibold">5-8%</strong>*.
             </p>
           </AnimateOnScroll>
