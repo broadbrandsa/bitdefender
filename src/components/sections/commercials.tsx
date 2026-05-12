@@ -396,14 +396,11 @@ export default function Commercials() {
             >
               Commercials
             </Badge>
-            <h2 className="text-3xl lg:text-5xl font-black tracking-tight text-foreground leading-[0.95] mb-4">
+            <h2 className="text-3xl lg:text-5xl font-black tracking-tight text-foreground leading-[0.95]">
               Detailed Pricing
               <br />
               <span className="text-bd-blue">&amp; Commercials</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Full pricing tables across revenue share, standard, wholesale and margin calculator scenarios.
-            </p>
           </div>
         </AnimateOnScroll>
 

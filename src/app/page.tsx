@@ -13,7 +13,6 @@ import ExpandCTA from '@/components/sections/expand-cta'
 import UserJourney from '@/components/sections/user-journey'
 import RestAPI from '@/components/sections/rest-api'
 import Support from '@/components/sections/support'
-import Pricing from '@/components/sections/pricing'
 import Commercials from '@/components/sections/commercials'
 import TermsCTA from '@/components/sections/terms-cta'
 import Footer from '@/components/sections/footer'
@@ -37,7 +36,6 @@ export default function Home() {
       <UserJourney />
       <RestAPI />
       <Support />
-      <Pricing />
       <Commercials />
       <TermsCTA />
       <Footer />
