@@ -122,7 +122,7 @@ export default function TermsCTA() {
 
               <div className="flex flex-wrap items-center gap-4 mb-8">
                 <a
-                  href="mailto:liamg@digitalresilience.co.za"
+                  href="mailto:jasonal@digitalresilience.co.za"
                   className="inline-flex items-center justify-center bg-bd-red hover:bg-bd-red/90 text-white font-semibold px-8 h-12 text-base rounded-xl transition-colors"
                 >
                   Contact Us
@@ -132,9 +132,9 @@ export default function TermsCTA() {
               <div className="text-sm text-white/30">
                 <p>
                   <strong className="text-white/50">Contact:</strong>{' '}
-                  Liam Le Goff, Digital Resilience —{' '}
-                  <a href="mailto:liamg@digitalresilience.co.za" className="text-bd-blue hover:underline">
-                    liamg@digitalresilience.co.za
+                  Jason Alexander, Digital Resilience —{' '}
+                  <a href="mailto:jasonal@digitalresilience.co.za" className="text-bd-blue hover:underline">
+                    jasonal@digitalresilience.co.za
                   </a>
                 </p>
               </div>

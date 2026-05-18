@@ -67,7 +67,7 @@ export default function Hero() {
           <AnimateOnScroll animation="fade-up" delay={0.25}>
             <div className="flex flex-wrap items-center gap-4 mb-12">
               <a
-                href="mailto:liamg@digitalresilience.co.za"
+                href="mailto:jasonal@digitalresilience.co.za"
                 className="inline-flex items-center justify-center bg-bd-red hover:bg-bd-red/90 text-white font-semibold px-8 h-12 text-base rounded-xl transition-colors group"
               >
                 <span className="group-hover:translate-x-0.5 transition-transform duration-150">Get in Touch</span>

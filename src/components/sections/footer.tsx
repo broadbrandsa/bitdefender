@@ -28,7 +28,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="mailto:liamg@digitalresilience.co.za"
+              href="mailto:jasonal@digitalresilience.co.za"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-bd-red hover:bg-bd-red/90 text-white text-sm font-medium transition-colors"
             >
               Contact Us
@@ -53,14 +53,14 @@ export default function Footer() {
               Contact
             </h4>
             <p className="text-sm text-white/70 mb-1">
-              <strong className="text-white font-medium">Liam Le Goff</strong>
+              <strong className="text-white font-medium">Jason Alexander</strong>
             </p>
             <p className="text-sm text-white/50 mb-1">Digital Resilience</p>
             <a
-              href="mailto:liamg@digitalresilience.co.za"
+              href="mailto:jasonal@digitalresilience.co.za"
               className="text-sm text-bd-blue hover:underline"
             >
-              liamg@digitalresilience.co.za
+              jasonal@digitalresilience.co.za
             </a>
           </div>
 

@@ -66,7 +66,7 @@ export default function Navbar() {
             <span className="lg:hidden">Deck</span>
           </a>
           <a
-            href="mailto:liamg@digitalresilience.co.za"
+            href="mailto:jasonal@digitalresilience.co.za"
             className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-lg bg-bd-red hover:bg-bd-red/90 text-white text-sm font-medium transition-colors duration-150"
           >
             <Mail className="w-4 h-4" />
