@@ -15,6 +15,7 @@ import RestAPI from '@/components/sections/rest-api'
 import Support from '@/components/sections/support'
 import Commercials from '@/components/sections/commercials'
 import TermsCTA from '@/components/sections/terms-cta'
+import Acceptance from '@/components/sections/acceptance'
 import Footer from '@/components/sections/footer'
 import ScrollToTop from '@/components/scroll-to-top'
 
@@ -38,6 +39,7 @@ export default function Home() {
       <Support />
       <Commercials />
       <TermsCTA />
+      <Acceptance />
       <Footer />
       <ScrollToTop />
     </main>
